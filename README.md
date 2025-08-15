@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @jomonsolinap
+- 👋 Hi
 - 🌱 I’m currently learning 
 - 📫 reach me jomonsolinap@gmail.com
 
