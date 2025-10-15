@@ -10,14 +10,6 @@ A passionate developer who loves turning ideas into reality with code.
 
 ---
 
-### 💻 Skills
-
-- **Languages:** Python, JavaScript, SQL
-- **Frameworks:** React, Node.js
-- **Tools:** Docker, Git, GitHub
-
----
-
 ### 📫 Get in Touch
 
 - **Email:** [jomonsolinap@gmail.com](mailto:jomonsolinap@gmail.com)
