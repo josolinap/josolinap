@@ -1,25 +1,8 @@
-<p align="center">
-  <img src="assets/terminal.svg" alt="Terminal Animation" width="800"/>
-</p>
+- 👋 Hi
+- 🌱 I’m currently learning
+- 📫 reach me jomonsolinap@gmail.com
 
-<div align="center">
-
-### Hi there, I'm Jomon Solinap 👋
-
-A passionate developer who loves turning ideas into reality with code.
-
----
-
-### 💻 Skills
-
-- **Languages:** Python, JavaScript, SQL
-- **Frameworks:** React, Node.js
-- **Tools:** Docker, Git, GitHub
-
----
-
-### 📫 Get in Touch
-
-- **Email:** [jomonsolinap@gmail.com](mailto:jomonsolinap@gmail.com)
-
-</div>
+<!---
+jomonsolinap/jomonsolinap is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
