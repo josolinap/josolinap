@@ -1,8 +1,11 @@
-- 👋 Hi
-- 🌱 I’m currently learning
-- 📫 reach me jomonsolinap@gmail.com
+<p align="center">
+  <img src="assets/terminal.svg" alt="Terminal Animation" width="800"/>
+</p>
 
-<!---
-jomonsolinap/jomonsolinap is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+<div align="center">
+
+### 📫 Get in Touch
+
+ **Email:** [jomonsolinap@gmail.com](mailto:jomonsolinap@gmail.com)
+
+</div>
