@@ -1,0 +1,71 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap');
+      .text {
+        font-family: 'Fira Code', monospace;
+        fill: #e0e0e0;
+        font-size: 14px;
+        white-space: pre;
+      }
+      .command {
+        fill: #82aaff;
+      }
+      .cursor {
+        fill: #e0e0e0;
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      .typing {
+        width: 0;
+        overflow: hidden;
+        animation: typing forwards;
+      }
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#1a1a1a" />
+  <rect width="100%" height="100%" filter="url(#blur)" fill="rgba(255, 255, 255, 0.05)" />
+
+  <!-- Terminal window -->
+  <rect x="10" y="10" width="780" height="380" rx="10" ry="10" fill="rgba(45, 45, 45, 0.5)" stroke="rgba(255, 255, 255, 0.1)" />
+
+  <!-- Title bar -->
+  <rect x="10" y="10" width="780" height="30" rx="10" ry="10" fill="rgba(77, 77, 77, 0.5)" />
+  <circle cx="30" cy="25" r="6" fill="#ff5f56" />
+  <circle cx="50" cy="25" r="6" fill="#ffbd2e" />
+  <circle cx="70" cy="25" r="6" fill="#27c93f" />
+
+  <!-- Text content -->
+  <g class="text">
+    <text x="30" y="70" class="typing" style="animation-duration: 0.8s; animation-timing-function: steps(8, end); animation-delay: 0.5s;"><tspan class="command">$</tspan> whoami</text>
+    <text x="30" y="95" class="typing" style="animation-duration: 1s; animation-timing-function: steps(10, end); animation-delay: 1.5s;">Jo Solinap</text>
+
+    <text x="30" y="140" class="typing" style="animation-duration: 0.5s; animation-timing-function: steps(5, end); animation-delay: 2.7s;"><tspan class="command">$</tspan> bio</text>
+    <text x="30" y="165" class="typing" style="animation-duration: 4s; animation-timing-function: steps(58, end); animation-delay: 3.4s;">Navigating the complexities of code with a stoic mindset.</text>
+    <text x="30" y="185" class="typing" style="animation-duration: 3s; animation-timing-function: steps(42, end); animation-delay: 7.6s;">Every line is a step in a grand adventure.</text>
+
+    <text x="30" y="230" class="typing" style="animation-duration: 0.9s; animation-timing-function: steps(9, end); animation-delay: 10.8s;"><tspan class="command">$</tspan> contact</text>
+    <a xlink:href="mailto:jomonsolinap@gmail.com">
+      <text x="30" y="255" class="typing" style="animation-duration: 2.6s; animation-timing-function: steps(26, end); animation-delay: 11.9s;">&gt; jomonsolinap@gmail.com</text>
+    </a>
+    <a xlink:href="mailto:mail@josolinap.dedyn.io">
+      <text x="30" y="275" class="typing" style="animation-duration: 2.5s; animation-timing-function: steps(25, end); animation-delay: 14.7s;">&gt; mail@josolinap.dedyn.io</text>
+    </a>
+
+    <text x="30" y="320" style="animation: fadeIn 0.5s forwards; animation-delay: 17.4s; opacity: 0;"><tspan class="command">$</tspan> <tspan class="cursor">_</tspan></text>
+  </g>
+</svg>
