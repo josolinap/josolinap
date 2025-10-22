@@ -5,16 +5,35 @@
     </filter>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap');
-      .text {
-        font-family: 'Fira Code', monospace;
-        fill: #e0e0e0;
-        font-size: 14px;
-        white-space: pre;
-      }
-      .command {
-        fill: #82aaff;
-      }
+      .text { font-family: 'Fira Code', monospace; fill: #e0e0e0; font-size: 14px; white-space: pre; }
+      .command { fill: #82aaff; }
+      .ascii-art { fill: #ffbd2e; font-size: 10px; }
+      a { fill: #e0e0e0; text-decoration: none; }
     </style>
+
+    <!-- Animation for ASCII Art Fade In -->
+    <g id="ascii-art-group">
+        <text x="30" y="40" class="ascii-art">
+            <tspan x="30" dy="1.2em">       __         _____       ___                 </tspan>
+            <tspan x="30" dy="1.2em">      / /___     / ___/____  / (_)___  ____ _____ </tspan>
+            <tspan x="30" dy="1.2em"> __  / / __ \    \__ \/ __ \/ / / __ \/ __ `/ __ \</tspan>
+            <tspan x="30" dy="1.2em">/ /_/ / /_/ /   ___/ / /_/ / / / / / / /_/ / /_/ /</tspan>
+            <tspan x="30" dy="1.2em">\____/\____/   /____/\____/_/_/_/ /_/\__,_/ .___/ </tspan>
+            <tspan x="30" dy="1.2em">                                         /_/      </tspan>
+        </text>
+    </g>
+
+    <!-- Typing Animation Templates -->
+    <g id="typing-template">
+      <clipPath id="clip-whoami"><rect width="0" height="20"><animate attributeName="width" from="0" to="80" dur="0.8s" begin="line1.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-name"><rect width="0" height="20"><animate attributeName="width" from="0" to="100" dur="1s" begin="line2.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-bio-cmd"><rect width="0" height="20"><animate attributeName="width" from="0" to="50" dur="0.5s" begin="line3.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-bio1"><rect width="0" height="20"><animate attributeName="width" from="0" to="500" dur="4s" begin="line4.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-bio2"><rect width="0" height="20"><animate attributeName="width" from="0" to="400" dur="3s" begin="line5.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-contact-cmd"><rect width="0" height="20"><animate attributeName="width" from="0" to="90" dur="0.9s" begin="line6.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-email1"><rect width="0" height="20"><animate attributeName="width" from="0" to="260" dur="2.6s" begin="line7.begin" fill="freeze"/></rect></clipPath>
+      <clipPath id="clip-email2"><rect width="0" height="20"><animate attributeName="width" from="0" to="250" dur="2.5s" begin="line8.begin" fill="freeze" id="last-line"/></rect></clipPath>
+    </g>
   </defs>
 
   <!-- Background -->
@@ -30,50 +49,38 @@
   <circle cx="50" cy="25" r="6" fill="#ffbd2e" />
   <circle cx="70" cy="25" r="6" fill="#27c93f" />
 
-  <!-- Text content -->
+  <!-- Animated Content -->
   <g class="text">
-    <foreignObject x="30" y="55" width="740" height="300">
-      <body xmlns="http://www.w3.org/1999/xhtml">
-        <style>
-          .line {
-            display: inline-block;
-            white-space: pre;
-            overflow: hidden;
-            border-right: .15em solid #e0e0e0;
-            animation-fill-mode: forwards;
-            width: 0;
-          }
-          .animate {
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-          }
-          @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-          }
-          @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #e0e0e0; }
-          }
-          a {
-            color: #e0e0e0;
-            text-decoration: none;
-          }
-        </style>
-        <div><span class="command">$</span> whoami</div>
-        <div class="line animate" style="animation-duration: 1.2s; animation-timing-function: steps(10, end); animation-delay: 1s;">Jo Solinap</div>
-        <br/>
-        <div><span class="command">$</span> bio</div>
-        <div class="line animate" style="animation-duration: 5.8s; animation-timing-function: steps(58, end); animation-delay: 2.7s;">Navigating the complexities of code with a stoic mindset.</div>
-        <div class="line animate" style="animation-duration: 4.2s; animation-timing-function: steps(42, end); animation-delay: 9s;">Every line is a step in a grand adventure.</div>
-        <br/>
-        <div><span class="command">$</span> contact</div>
-        <a href="mailto:jomonsolinap@gmail.com">
-          <div class="line animate" style="animation-duration: 2.6s; animation-timing-function: steps(26, end); animation-delay: 13.7s;">&gt; jomonsolinap@gmail.com</div>
-        </a>
-        <a href="mailto:mail@josolinap.dedyn.io">
-          <div class="line animate" style="animation-duration: 2.5s; animation-timing-function: steps(25, end); animation-delay: 16.8s;">&gt; mail@josolinap.dedyn.io</div>
-        </a>
-      </body>
-    </foreignObject>
+    <use xlink:href="#typing-template" />
+    <use xlink:href="#ascii-art-group">
+        <animate id="ascii-fade" attributeName="opacity" from="0" to="1" dur="1s" begin="0s;last-line.end + 1s" fill="freeze"/>
+    </use>
+
+    <g transform="translate(30, 160)">
+      <text id="line1" clip-path="url(#clip-whoami)"><tspan class="command">$</tspan> whoami<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="ascii-fade.end + 1s" fill="freeze"/></text>
+      <text id="line2" y="25" clip-path="url(#clip-name)">Jo Solinap<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line1.begin + 1.3s" fill="freeze"/></text>
+      <text id="line3" y="70" clip-path="url(#clip-bio-cmd)"><tspan class="command">$</tspan> bio<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line2.begin + 1.5s" fill="freeze"/></text>
+      <text id="line4" y="95" clip-path="url(#clip-bio1)">Navigating the complexities of code with a stoic mindset.<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line3.begin + 1s" fill="freeze"/></text>
+      <text id="line5" y="115" clip-path="url(#clip-bio2)">Every line is a step in a grand adventure.<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line4.begin + 4.5s" fill="freeze"/></text>
+      <text id="line6" y="160" clip-path="url(#clip-contact-cmd)"><tspan class="command">$</tspan> contact<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line5.begin + 3.5s" fill="freeze"/></text>
+      <a xlink:href="mailto:jomonsolinap@gmail.com"><text id="line7" y="185" clip-path="url(#clip-email1)">&gt; jomonsolinap@gmail.com<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line6.begin + 1.4s" fill="freeze"/></text></a>
+      <a xlink:href="mailto:mail@josolinap.dedyn.io"><text id="line8" y="205" clip-path="url(#clip-email2)">&gt; mail@josolinap.dedyn.io<animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="line7.begin + 3.1s" fill="freeze"/></text></a>
+    </g>
+
+    <!-- Moving Cursor -->
+    <rect x="30" y="146" width="8" height="16" fill="#e0e0e0">
+      <animate attributeName="x" from="30" to="110" dur="0.8s" begin="line1.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="130" dur="1s" begin="line2.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="80" dur="0.5s" begin="line3.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="530" dur="4s" begin="line4.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="430" dur="3s" begin="line5.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="120" dur="0.9s" begin="line6.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="290" dur="2.6s" begin="line7.begin" fill="freeze"/>
+      <animate attributeName="x" from="30" to="280" dur="2.5s" begin="line8.begin" fill="freeze"/>
+
+      <animate attributeName="y" values="146;171;216;241;261;306;331;351" dur="0.01s" begin="line1.begin;line2.begin;line3.begin;line4.begin;line5.begin;line6.begin;line7.begin;line8.begin" fill="freeze"/>
+
+      <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="0s;last-line.end" repeatCount="indefinite" />
+    </rect>
   </g>
 </svg>
