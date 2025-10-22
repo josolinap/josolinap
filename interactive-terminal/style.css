@@ -1,39 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
 body, html {
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, #232526, #414345);
+    color: #e0e0e0;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: 0;
     padding: 20px;
     height: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #terminal-container {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    max-height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
     display: flex;
     flex-direction: column;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#terminal-container:focus-within {
+    box-shadow: 0 8px 32px 0 rgba(0, 255, 157, 0.37);
 }
 
 #terminal {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    padding: 10px;
+    background-color: transparent;
+    padding: 20px;
     flex-grow: 1;
     overflow-y: auto;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* Custom scrollbar for a modern look */
+#terminal::-webkit-scrollbar {
+    width: 8px;
+}
+
+#terminal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#terminal::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
 }
 
 #output .prompt {
-    color: #569cd6;
+    color: #00ff9d; /* Bright green */
 }
 
 #output .command {
-    color: #dcdcaa;
+    color: #72b6f2; /* Light blue */
 }
 
 #output .error {
-    color: #f44747;
+    color: #ff6b6b; /* Soft red */
+}
+
+a {
+    color: #fca311; /* Bright orange for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .input-line {
@@ -42,14 +83,14 @@ body, html {
 }
 
 .prompt {
-    color: #569cd6;
+    color: #00ff9d; /* Bright green */
     margin-right: 8px;
 }
 
 #command-input {
     background-color: transparent;
     border: none;
-    color: #d4d4d4;
+    color: #e0e0e0;
     font-family: inherit;
     font-size: inherit;
     flex-grow: 1;
@@ -62,11 +103,27 @@ body, html {
 
 /* Blinking cursor effect */
 #command-input {
-    border-right: 2px solid #d4d4d4;
+    padding: 0;
+    margin: 0;
+    caret-color: #e0e0e0;
+}
+
+.input-line {
+    position: relative;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: #e0e0e0;
+    width: 8px;
+    height: 1.2em;
     animation: blink 1s step-end infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 @keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: #d4d4d4; }
+    from, to { background-color: transparent }
+    50% { background-color: #e0e0e0; }
 }
