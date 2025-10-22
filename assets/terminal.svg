@@ -14,25 +14,6 @@
       .command {
         fill: #82aaff;
       }
-      .cursor {
-        fill: #e0e0e0;
-        animation: blink 1s step-end infinite;
-      }
-      @keyframes blink {
-        50% { opacity: 0; }
-      }
-      .typing {
-        width: 0;
-        overflow: hidden;
-        animation: typing forwards;
-      }
-      @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-      }
-      @keyframes fadeIn {
-        to { opacity: 1; }
-      }
     </style>
   </defs>
 
@@ -51,21 +32,48 @@
 
   <!-- Text content -->
   <g class="text">
-    <text x="30" y="70" class="typing" style="animation-duration: 0.8s; animation-timing-function: steps(8, end); animation-delay: 0.5s;"><tspan class="command">$</tspan> whoami</text>
-    <text x="30" y="95" class="typing" style="animation-duration: 1s; animation-timing-function: steps(10, end); animation-delay: 1.5s;">Jo Solinap</text>
-
-    <text x="30" y="140" class="typing" style="animation-duration: 0.5s; animation-timing-function: steps(5, end); animation-delay: 2.7s;"><tspan class="command">$</tspan> bio</text>
-    <text x="30" y="165" class="typing" style="animation-duration: 4s; animation-timing-function: steps(58, end); animation-delay: 3.4s;">Navigating the complexities of code with a stoic mindset.</text>
-    <text x="30" y="185" class="typing" style="animation-duration: 3s; animation-timing-function: steps(42, end); animation-delay: 7.6s;">Every line is a step in a grand adventure.</text>
-
-    <text x="30" y="230" class="typing" style="animation-duration: 0.9s; animation-timing-function: steps(9, end); animation-delay: 10.8s;"><tspan class="command">$</tspan> contact</text>
-    <a xlink:href="mailto:jomonsolinap@gmail.com">
-      <text x="30" y="255" class="typing" style="animation-duration: 2.6s; animation-timing-function: steps(26, end); animation-delay: 11.9s;">&gt; jomonsolinap@gmail.com</text>
-    </a>
-    <a xlink:href="mailto:mail@josolinap.dedyn.io">
-      <text x="30" y="275" class="typing" style="animation-duration: 2.5s; animation-timing-function: steps(25, end); animation-delay: 14.7s;">&gt; mail@josolinap.dedyn.io</text>
-    </a>
-
-    <text x="30" y="320" style="animation: fadeIn 0.5s forwards; animation-delay: 17.4s; opacity: 0;"><tspan class="command">$</tspan> <tspan class="cursor">_</tspan></text>
+    <foreignObject x="30" y="55" width="740" height="300">
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <style>
+          .line {
+            display: inline-block;
+            white-space: pre;
+            overflow: hidden;
+            border-right: .15em solid #e0e0e0;
+            animation-fill-mode: forwards;
+            width: 0;
+          }
+          .animate {
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+          }
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+          }
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #e0e0e0; }
+          }
+          a {
+            color: #e0e0e0;
+            text-decoration: none;
+          }
+        </style>
+        <div><span class="command">$</span> whoami</div>
+        <div class="line animate" style="animation-duration: 1.2s; animation-timing-function: steps(10, end); animation-delay: 1s;">Jo Solinap</div>
+        <br/>
+        <div><span class="command">$</span> bio</div>
+        <div class="line animate" style="animation-duration: 5.8s; animation-timing-function: steps(58, end); animation-delay: 2.7s;">Navigating the complexities of code with a stoic mindset.</div>
+        <div class="line animate" style="animation-duration: 4.2s; animation-timing-function: steps(42, end); animation-delay: 9s;">Every line is a step in a grand adventure.</div>
+        <br/>
+        <div><span class="command">$</span> contact</div>
+        <a href="mailto:jomonsolinap@gmail.com">
+          <div class="line animate" style="animation-duration: 2.6s; animation-timing-function: steps(26, end); animation-delay: 13.7s;">&gt; jomonsolinap@gmail.com</div>
+        </a>
+        <a href="mailto:mail@josolinap.dedyn.io">
+          <div class="line animate" style="animation-duration: 2.5s; animation-timing-function: steps(25, end); animation-delay: 16.8s;">&gt; mail@josolinap.dedyn.io</div>
+        </a>
+      </body>
+    </foreignObject>
   </g>
 </svg>
